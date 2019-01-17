@@ -9,6 +9,8 @@ module "az_nsg" {
   source = "git::https://github.com/walmartdigital/k8s-nsg-module.git?ref=0.0.1"
 
   resource_group = "my-resource-group"
+  cluster_name = "my-cluster-name"
+  environment = "staging"
   name_suffix    = "abc123"
 
   ns_rules = [
@@ -30,6 +32,8 @@ module "az_nsg" {
 ## Arguments
 
 * **resource_group**: Resource group where all resources will be provisioned (type: string, required).
+* **cluster_name**: Name of the cluster (type: string, default: kubernetes).
+* **environment**: Environment where the cluster is deployed (type: string, default: labs).
 * **name_suffix**: A string used as name suffix (type: string).
 * **ns_rules**: A list of security rules, each item is a map object. You need to provide the following variables for each map item: name, priority, direction, access, protocol, source_port_ranges, destination_port_ranges, source_address_prefix, destination_address_prefix and description.
 
