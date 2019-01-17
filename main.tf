@@ -20,6 +20,6 @@ resource "azurerm_network_security_rule" "ns_rules" {
   source_address_prefix       = "${lookup(var.ns_rules[count.index], "source_address_prefix", "*")}"
   destination_address_prefix  = "${lookup(var.ns_rules[count.index], "destination_address_prefix", "*")}"
   description                 = "${lookup(var.ns_rules[count.index], "description", "Security rule for ${lookup(var.ns_rules[count.index], "name", "default_rule")}")}"
-  resource_group_name         = "${azurerm_resource_group.nsg.name}"
+  resource_group_name         = "${data.azurerm_resource_group.main.name}"
   network_security_group_name = "${azurerm_network_security_group.nsg.name}"
 }
