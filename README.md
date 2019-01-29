@@ -1,6 +1,6 @@
 # Azure Network Security Group Module
 
-This module create all required resources for deploy a Network Security Group with a list of security rules provisioned by the client, all of this to be used in a Kubernetes Cluster.
+This module create all required resources for deploy a Network Security Group with a list of security rules provisioned by the client.
 
 ## Usage
 
@@ -9,8 +9,8 @@ module "az_nsg" {
   source = "git::https://github.com/walmartdigital/k8s-nsg-module.git?ref=0.0.1"
 
   resource_group = "my-resource-group"
-  cluster_name = "my-cluster-name"
-  environment = "staging"
+  cluster_name   = "my-cluster-name"
+  environment    = "staging"
   name_suffix    = "abc123"
 
   ns_rules = [
@@ -31,11 +31,11 @@ module "az_nsg" {
 
 ## Arguments
 
-* **resource_group**: Resource group where all resources will be provisioned (type: string, required).
-* **cluster_name**: Name of the cluster (type: string, default: kubernetes).
-* **environment**: Environment where the cluster is deployed (type: string, default: labs).
+* **resource_group**: A string representing the resource group where all resources will be provisioned, this resource group needs to be previously created (required).
+* **cluster_name**: A string used as the cluster name.
+* **environment**: A string used as environment where the cluster is deployed.
 * **name_suffix**: A string used as name suffix (type: string).
-* **ns_rules**: A list of security rules, each item is a map object. You need to provide the following variables for each map item: name, priority, direction, access, protocol, source_port_ranges, destination_port_ranges, source_address_prefix, destination_address_prefix and description.
+* **ns_rules**: A list of security rules, each item is a map object. You need to provide the following variables for each map item: _name_, _priority_, _direction_, _access_, _protocol_, _source_port_ranges_, _destination_port_ranges_, _source_address_prefix_, _destination_address_prefix_ and _description_.
 
 ## Outputs
 
