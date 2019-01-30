@@ -15,7 +15,7 @@ resource "azurerm_network_security_rule" "ns_rules" {
   direction                   = "${lookup(var.ns_rules[count.index], "direction", "Any")}"
   access                      = "${lookup(var.ns_rules[count.index], "access", "Allow")}"
   protocol                    = "${lookup(var.ns_rules[count.index], "protocol", "*")}"
-  source_port_ranges          = "${lookup(var.ns_rules[count.index], "source_port_range", "*" )}"
+  source_port_ranges          = "${split( ",", replace("${lookup(var.ns_rules[count.index], "source_port_range", "*" )}", "*", "0-65535") )}"
   destination_port_ranges     = "${split( ",", replace("${lookup(var.ns_rules[count.index], "destination_port_range", "*" )}", "*", "0-65535") )}"
   source_address_prefix       = "${lookup(var.ns_rules[count.index], "source_address_prefix", "*")}"
   destination_address_prefix  = "${lookup(var.ns_rules[count.index], "destination_address_prefix", "*")}"
