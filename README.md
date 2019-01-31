@@ -6,7 +6,7 @@ This module create all required resources for deploy a Network Security Group wi
 
 ```bash
 module "az_nsg" {
-  source = "git::https://github.com/walmartdigital/k8s-nsg-module.git?ref=0.0.1"
+  source = "git::https://github.com/walmartdigital/k8s-nsg-module.git?ref=0.1.0"
 
   resource_group = "my-resource-group"
   cluster_name   = "my-cluster-name"
