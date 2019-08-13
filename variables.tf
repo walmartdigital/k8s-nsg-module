@@ -1,20 +1,20 @@
 variable "resource_group" {
-  type = "string"
+  type = string
 }
 
 variable "cluster_name" {
-  type = "string"
+  type = string
 }
 
 variable "environment" {
-  type = "string"
+  type = string
 }
 
 variable "name_suffix" {
-  type = "string"
+  type = string
 }
 
 variable "ns_rules" {
-  type    = "list"
+  type    = list(object({ rule = map(string) }))
   default = []
 }
