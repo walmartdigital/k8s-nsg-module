@@ -15,6 +15,6 @@ variable "name_suffix" {
 }
 
 variable "ns_rules" {
-  type    = list(object({ rule = map(string) }))
+  type    = list(map(string))
   default = []
 }
