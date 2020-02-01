@@ -7,7 +7,7 @@ data "azurerm_resource_group" "main" {
 }
 
 resource "azurerm_network_security_group" "nsg" {
-  name                = "${var.cluster_name}-${var.environment}-${var.name_suffix}-nsg"
+  name                = "${var.cluster_name}-${var.environment}-${var.name_suffix}-${var.target}-nsg"
   resource_group_name = data.azurerm_resource_group.main.name
   location            = data.azurerm_resource_group.main.location
 }
