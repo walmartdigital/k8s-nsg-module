@@ -22,6 +22,7 @@ resource "azurerm_network_security_rule" "ns_rules" {
   source_port_range           = lookup(var.ns_rules[count.index], "source_port_range", "*")
   destination_port_range      = lookup(var.ns_rules[count.index], "destination_port_range", "*")
   source_address_prefix       = lookup(var.ns_rules[count.index], "source_address_prefix", "*")
+  source_address_prefixes     = lookup(var.ns_rules[count.index], "source_address_prefixes", "*")
   destination_address_prefix  = lookup(var.ns_rules[count.index], "destination_address_prefix", "*")
   description                 = lookup(var.ns_rules[count.index], "description", "Security rule for ${lookup(var.ns_rules[count.index], "name", "default_rule")}")
   resource_group_name         = data.azurerm_resource_group.main.name
